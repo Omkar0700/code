@@ -1,0 +1,5 @@
+C:\\Program Files\\Tesseract-OCR\\tesseract.exe
+C:\Program Files\Tesseract-OCR\tesseract.exe
+D:\Downloads\VSCodeUserSetup-x64-1.62.1.exe
+D:\Downloads\BetternetForWindows.exe
+D:\Downloads\CiscoPacketTracer_801_Windows_64bit_setup.exe

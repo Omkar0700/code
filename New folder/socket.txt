@@ -1,0 +1,33 @@
+host=socket.gethostbyname(socket.gethostname())
+port=3016
+server=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+server.bind((host,port))
+server.listen(10)
+
+while True :
+    conn,add=server.accept()
+    print(f"connected to {add}")
+    mssg=conn.recv(1024).decode('utf-8')
+    print (f"message form client is {mssg}")
+    conn.send(f"i don't want to talk")
+    conn.close()
+
+
+
+import socket
+host=socket.gethostbyname(socket.gethostname())
+port=3016
+server=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+socket.conne
+socket.send("do you want to talk".encode('utf-8'))
+print(socket.recv(1024).decoe)
+
+
+
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((host, port))
+    s.sendall(b"Hello, world")
+    data = s.recv(1024)
+
+print(f"Received {data!r}")

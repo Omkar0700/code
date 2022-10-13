@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-3</title>
+</head>
+<body>
+    <button onclick="get_date()">Click me</button>
+    <p id="p">
+
+    </p>
+    
+    <script>
+        function get_date(){
+            var today = new Date();
+            var date = today.getDate();
+            var month = today.getMonth()+1;
+            var year = today.getFullYear();
+
+            if(date<10) {
+                date='0'+date;
+            }
+            if(month<10){
+                month='0'+month;    
+            }   
+            document.getElementById('p').innerHTML = `<h1>Today's date is ${(date+"-"+month+"-"+year)}</h1>`;
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-2</title>
+</head>
+<body>
+    <p>Links : </p>
+    <button onclick="redirect('Groww')">Groww</button><br><br>
+    <button onclick="redirect('5paisa')">5paisa</button><br><br>
+    <button onclick="redirect('coin')">Coin</button><br><br>
+    <button onclick="redirect('Zerodha')">Zerodha</button><br><br>
+
+    <script>
+        function redirect(str){
+            if(str == "Groww"){
+                window.location = "https://groww.in/"
+            }else if(str == "5paisa"){
+                window.location = "https://www.5paisa.com/"
+            }
+            else if (str=="coin"){
+                window.location="https://coin.zerodha.com/mf"
+            }
+            else{
+                window.location = "https://zerodha.com/"
+            }
+        }
+    </script>
+</body>
+</html>

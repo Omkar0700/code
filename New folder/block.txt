@@ -1,0 +1,20 @@
+1.version
+2.contact mycontract
+3.constuctor call only ones
+4.function
+5.view/pure
+6.acess modifier internal/public
+7.variables state and local
+8.state variables are stored in blockchain and any change in that is a change in blockchain that is a transcation
+9. local variables are only available in that
+function
+10.data structures uint,int,address,string,byte
+11.complex data structer stuct can made by self
+12.array /2d array
+13.mapping
+14.if else and condition
+15.enum conditon 
+16.require
+17.modifier
+18.event
+

@@ -1,0 +1,6 @@
+Git ,jenknis,kubernetes, linux,docker,ansible,teraform
+day 1 started learning devops
+day 2 trying to complete some part of docker course (never lose hope)
+day 3 completed docker 
+day 4 started doing kubernetes
+day 5

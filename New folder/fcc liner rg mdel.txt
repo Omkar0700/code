@@ -1,0 +1,67 @@
+!pip install -q git+https://github.com/tensorflow/docs
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+try:
+  # %tensorflow_version only exists in Colab.
+  %tensorflow_version 2.x
+except Exception:
+  pass
+import tensorflow as tf
+
+from tensorflow import keras
+from tensorflow.keras import layers
+
+import tensorflow_docs as tfdocs
+import tensorflow_docs.plots
+import tensorflow_docs.modeling
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+!wget https://cdn.freecodecamp.org/project-data/health-costs/insurance.csv
+dataset = pd.read_csv('insurance.csv')
+dataset.tail()
+
+
+
+
+dataset.replace({'sex':{'male':1,'female':0}},inplace=True)
+dataset.replace({'smoker':{'yes':1,'no':0}},inplace=True)
+dataset.replace({'region':{'southeast':0,'southwest':1,'northwest':2,'northeast':3}},inplace=True)
+X=dataset.drop(columns='expenses',axis=1)
+y=dataset.expenses
+train_dataset, test_dataset, train_labels, test_labels = train_test_split( X, y,test_size=0.20)
+model = keras.Sequential([
+                             layers.Dense(400, activation = 'relu'),
+                             layers.Dense(200, activation = 'relu'),
+                             layers.Dropout(0.2),
+                             layers.Dense(100, activation = 'relu'),
+                             layers.Dense(1, activation = 'linear')
+])
+
+model.compile(
+    optimizer = 'adam',
+    loss = 'mae',
+    metrics = ['mae', 'mse']
+)
+model.fit(train_dataset, train_labels, epochs = 160)
+loss, mae, mse = model.evaluate(test_dataset, test_labels, verbose=2)
+
+print("Testing set Mean Abs Error: {:5.2f} expenses".format(mae))
+
+if mae < 3500:
+  print("You passed the challenge. Great job!")
+else:
+  print("The Mean Abs Error must be less than 3500. Keep trying.")
+
+# Plot predictions.
+test_predictions = model.predict(test_dataset).flatten()
+
+a = plt.axes(aspect='equal')
+plt.scatter(test_labels, test_predictions)
+plt.xlabel('True values (expenses)')
+plt.ylabel('Predictions (expenses)')
+lims = [0, 50000]
+plt.xlim(lims)
+plt.ylim(lims)
+_ = plt.plot(lims,lims)
